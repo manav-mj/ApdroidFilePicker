@@ -1,6 +1,8 @@
 package com.manavjain.apdroidfilepickerlibrary.ui;
 
 import android.app.Fragment;
+import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
@@ -10,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.manavjain.apdroidfilepickerlibrary.R;
 import com.manavjain.apdroidfilepickerlibrary.utils.FilePickerUtils;
@@ -26,6 +29,8 @@ public class FileFragment extends Fragment {
     private RecyclerView mFolderRecyclerView;
     private View mEmptyView;
     private FileAdapter mFileAdapter;
+
+    private TextView mPathTextView;
 
     private FileClickListener mFileClickListener;
 
@@ -61,6 +66,9 @@ public class FileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_folder, container, false);
         mFolderRecyclerView = view.findViewById(R.id.folder_list_view);
+        mPathTextView = view.findViewById(R.id.path_text_view);
+        mPathTextView.setText(mPath);
+        mPathTextView.setTypeface(FilePickerUtils.getProximaNoveTypeface(getActivity()));
         return view;
     }
 
@@ -78,6 +86,7 @@ public class FileFragment extends Fragment {
 
         mFolderRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mFolderRecyclerView.setAdapter(mFileAdapter);
+//        mFolderRecyclerView.addItemDecoration(new FilePickerDecorator());
     }
 
     public void setFileClickListener(FileClickListener fileClickListener) {
@@ -86,5 +95,13 @@ public class FileFragment extends Fragment {
 
     interface FileClickListener {
         void onFileClick(File clickedFile);
+    }
+
+    public class FilePickerDecorator extends RecyclerView.ItemDecoration{
+
+        @Override
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+            outRect.set(0,-1,0,-1);
+        }
     }
 }
