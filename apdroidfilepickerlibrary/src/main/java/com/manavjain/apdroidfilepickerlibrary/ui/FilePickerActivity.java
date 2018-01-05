@@ -50,10 +50,10 @@ public class FilePickerActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (visitedPaths.size()>0) {
+        if (visitedPaths.size() > 0) {
             replaceFragment(visitedPaths.get(visitedPaths.size() - 1));
             visitedPaths.remove(visitedPaths.size() - 1);
-        }else super.onBackPressed();
+        } else super.onBackPressed();
     }
 
     public void setResultAndFinish(String path) {

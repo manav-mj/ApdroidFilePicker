@@ -96,11 +96,11 @@ public class FileFragment extends Fragment {
         void onFileClick(File clickedFile);
     }
 
-    public class FilePickerDecorator extends RecyclerView.ItemDecoration{
+    public class FilePickerDecorator extends RecyclerView.ItemDecoration {
 
         @Override
         public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-            outRect.set(0,-1,0,-1);
+            outRect.set(0, -1, 0, -1);
         }
     }
 }

@@ -30,7 +30,7 @@ public class FilePickerUtils {
         return result;
     }
 
-    public static Typeface getProximaNoveTypeface(Activity activity){
+    public static Typeface getProximaNoveTypeface(Activity activity) {
         return Typeface.createFromAsset(activity.getApplicationContext().getAssets(),
                 String.format(Locale.US, "fonts/%s", "ProximaNovaSoft-Semibold.otf"));
     }

@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
-        android:textColor="@color/white"
-        android:gravity="center_vertical"
-        android:paddingRight="@dimen/leftRightMargin"
-        android:paddingLeft="@dimen/leftRightMargin"
-        android:maxLines="1"
-        android:ellipsize="end"
         android:id="@+id/path_text_view"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/brightBlue"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:paddingLeft="@dimen/leftRightMargin"
+        android:paddingRight="@dimen/leftRightMargin"
         android:text="test"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/white" />
 
     <android.support.v7.widget.RecyclerView
-        android:layout_marginStart="@dimen/leftRightMargin"
-        android:layout_marginEnd="@dimen/leftRightMargin"
+        android:id="@+id/folder_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id ="@+id/folder_list_view"/>
+        android:layout_marginEnd="@dimen/leftRightMargin"
+        android:layout_marginStart="@dimen/leftRightMargin" />
 </LinearLayout>

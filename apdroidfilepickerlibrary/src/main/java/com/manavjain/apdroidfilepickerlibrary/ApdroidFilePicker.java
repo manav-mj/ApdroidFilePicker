@@ -19,17 +19,17 @@ public class ApdroidFilePicker {
 
     private Intent intent;
 
-    public ApdroidFilePicker withActivity(Activity activity){
+    public ApdroidFilePicker withActivity(Activity activity) {
         mActivity = activity;
         return this;
     }
 
-    public ApdroidFilePicker withRequestCode(Integer requestCode){
+    public ApdroidFilePicker withRequestCode(Integer requestCode) {
         mRequestCode = requestCode;
         return this;
     }
 
-    public ApdroidFilePicker setMaxSelection(Integer maxSelection){
+    public ApdroidFilePicker setMaxSelection(Integer maxSelection) {
         mMaxSelection = maxSelection;
         return this;
     }
