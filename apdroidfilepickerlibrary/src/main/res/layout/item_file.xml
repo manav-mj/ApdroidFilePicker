@@ -22,15 +22,15 @@
 
     <TextView
         android:id="@+id/item_text_view"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:ellipsize="middle"
-        android:gravity="center"
+        android:ellipsize="end"
+        android:gravity="start"
         android:maxLines="2"
         android:text="name"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -42,11 +42,12 @@
 
     <TextView
         android:id="@+id/file_count_text_view"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:text="2 files"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/right_guidline"
@@ -67,7 +68,7 @@
         app:layout_constraintGuide_percent=".15" />
 
     <FrameLayout
-        android:background="@color/darkBackground"
+        android:background="@color/lightBlue"
         android:layout_width="0dp"
         android:layout_height="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -79,7 +80,7 @@
     </FrameLayout>
 
     <FrameLayout
-        android:background="@color/darkBackground"
+        android:background="@color/lightBlue"
         android:layout_width="0dp"
         android:layout_height="1dp"
         app:layout_constraintBottom_toBottomOf="parent"

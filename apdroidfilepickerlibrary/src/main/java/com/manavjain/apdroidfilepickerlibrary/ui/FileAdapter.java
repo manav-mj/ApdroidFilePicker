@@ -38,7 +38,15 @@ class FileAdapter extends RecyclerView.Adapter<FileAdapter.FileViewHolder> {
 
     @Override
     public void onBindViewHolder(FileViewHolder holder, int position) {
-        holder.textView.setText(getItem(position).getName());
+        File file = getItem(position);
+        holder.mNameTextView.setText(file.getName());
+        if (file.isDirectory()){
+            holder.mFileIconView.setImageResource(R.drawable.ic_folder_black_48dp);
+            holder.mFileCountTextView.setText(file.listFiles().length + " files");
+        }else {
+            holder.mFileCountTextView.setText(Integer.parseInt(String.valueOf(file.length()/1024))+ " kb");
+            holder.mFileIconView.setImageResource(R.drawable.ic_insert_drive_file_black_48dp);
+        }
     }
 
     public File getItem(int position){
@@ -56,16 +64,18 @@ class FileAdapter extends RecyclerView.Adapter<FileAdapter.FileViewHolder> {
 
     public class FileViewHolder extends RecyclerView.ViewHolder{
 
-        public ImageView imageView;
-        public TextView textView;
+        public ImageView mFileIconView;
+        public TextView mNameTextView;
+        public TextView mFileCountTextView;
 
         FileItemClickListener listener;
 
         public FileViewHolder(View itemView, FileItemClickListener listener) {
             super(itemView);
 
-            imageView = itemView.findViewById(R.id.item_image);
-            textView = itemView.findViewById(R.id.item_text_view);
+            mFileIconView = itemView.findViewById(R.id.item_image);
+            mNameTextView = itemView.findViewById(R.id.item_text_view);
+            mFileCountTextView = itemView.findViewById(R.id.file_count_text_view);
             this.listener = listener;
 
             itemView.setOnClickListener(v->this.listener.onItemClick(v, getAdapterPosition()));

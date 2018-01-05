@@ -27,7 +27,6 @@ public class FileFragment extends Fragment {
 
     private static final String FILE_PATH_KEY = "file_path";
     private RecyclerView mFolderRecyclerView;
-    private View mEmptyView;
     private FileAdapter mFileAdapter;
 
     private TextView mPathTextView;
@@ -86,7 +85,7 @@ public class FileFragment extends Fragment {
 
         mFolderRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mFolderRecyclerView.setAdapter(mFileAdapter);
-//        mFolderRecyclerView.addItemDecoration(new FilePickerDecorator());
+        mFolderRecyclerView.addItemDecoration(new FilePickerDecorator());
     }
 
     public void setFileClickListener(FileClickListener fileClickListener) {
