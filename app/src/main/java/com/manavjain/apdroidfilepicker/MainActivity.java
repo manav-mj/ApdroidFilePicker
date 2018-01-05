@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     public void openFilePicker(View view){
         new ApdroidFilePicker()
                 .withActivity(this)
-                .setMaxSelection(1)
                 .withRequestCode(121)
                 .start();
     }
