@@ -18,6 +18,7 @@ import com.manavjain.apdroidfilepickerlibrary.R;
 import com.manavjain.apdroidfilepickerlibrary.utils.FilePickerUtils;
 
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * Created by YourFather on 02-01-2018.
@@ -78,8 +79,10 @@ public class FileFragment extends Fragment {
     }
 
     private void initFilesList() {
-        mFileAdapter = new FileAdapter(getActivity(),
-                FilePickerUtils.getFileListByPath(mPath));
+        ArrayList<File> files = FilePickerUtils.getFileListByPath(mPath);
+        if (files.size() > 0) getView().findViewById(R.id.empty_tag).setVisibility(View.GONE);
+        else getView().findViewById(R.id.empty_tag).setVisibility(View.VISIBLE);
+        mFileAdapter = new FileAdapter(getActivity(), files);
 
         mFileAdapter.setFileItemClickListener((view, position) -> mFileClickListener.onFileClick(mFileAdapter.getItem(position)));
 
